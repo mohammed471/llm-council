@@ -84,8 +84,8 @@ Edit `config.json` (or pass `--config my.json`, or set `LLM_COUNCIL_CONFIG`):
 
 ```json
 {
-  "council_models": ["openai/gpt-5.1", "google/gemini-3-pro-preview", "anthropic/claude-sonnet-4.5", "x-ai/grok-4"],
-  "chairman_model": "google/gemini-3-pro-preview",
+  "council_models": ["openai/gpt-6.1-sol", "google/gemini-4-argon", "anthropic/claude-sonnet-5.5", "qwen/qwen3.8-max-prime"],
+  "chairman_model": "google/gemini-4-argon",
   "api_url": "https://openrouter.ai/api/v1/chat/completions",
   "timeout_seconds": 120
 }
