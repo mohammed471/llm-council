@@ -78,6 +78,14 @@ LLM Council is a 3-stage deliberation system where multiple LLMs collaboratively
 - Global markdown styling in `index.css` with `.markdown-content` class
 - 12px padding on all markdown content to prevent cluttered appearance
 
+### Agent Skill (`skills/llm-council/`)
+- Standalone port of `backend/council.py` as a Claude Agent Skill; does NOT import the backend
+- `scripts/council.py` is stdlib-only (urllib + ThreadPoolExecutor) so it runs in any sandbox
+- Prompts and `parse_ranking_from_text` / `calculate_aggregate_rankings` mirror the backend; keep them in sync if you change one
+- Config in `skills/llm-council/config.json`; API key only from `OPENROUTER_API_KEY` env var
+- Exit code 2 (no key) / 3 (no model reachable) → SKILL.md tells Claude to use simulated mode
+- Build zip: `python3 scripts/build_skill.py` → `dist/llm-council.zip`; tests: `python3 -m unittest discover -s tests`
+
 ## Key Design Decisions
 
 ### Stage 2 Prompt Format
